@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Search</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+<header>
+    <div th:replace="~{fragments/header :: header}"></div>
+</header>
+
+<div class="container">
+    <div class="row row-cols-3 mt-3">
+        <div class="col mb-3" th:each="location : ${geoCodingWeather}">
+            <div class="card">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-weight-bold" th:text="${location.city + ', ' + location.country}"></h4>
+                    <span class="text-secondary fst-italic"
+                          th:text="${location.latitude + '°, ' + location.longitude + '°'}"></span>
+                </div>
+                <div class="card-body">
+                    <img th:src="${location.icon}" th:alt="${location.description}">
+                    <span class="text-dark" th:text="${location.description}"></span>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li class="h4" th:text="${location.temperature}"></li>
+                        <li th:text="${'Max.:' + location.temperatureMax + ', min.: ' + location.temperatureMin}"></li>
+                        <li th:text="${'Feels like: ' + location.feelsLike}"></li>
+                    </ul>
+                    <form th:action="@{/forecast-weather}" method="post" class="form-control">
+                        <input name="city" th:value="${city}" type="hidden">
+                        <input name="longitude" th:value="${location.longitude}" type="hidden">
+                        <input name="latitude" th:value="${location.latitude}" type="hidden">
+                        <button type="submit" class="w-100 btn btn-lg btn-outline-dark">Forecast</button>
+                    </form>
+                    <div th:if="${login} != null">
+                        <form th:action="@{/add-location}" method="post" class="form-control">
+                            <input name="city" th:value="${city}" type="hidden">
+                            <input name="longitude" th:value="${location.longitude}" type="hidden">
+                            <input name="latitude" th:value="${location.latitude}" type="hidden">
+                            <button type="submit" class="w-100 btn btn-lg btn-outline-dark">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
