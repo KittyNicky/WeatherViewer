@@ -28,9 +28,8 @@
                     <ul class="list-unstyled mt-3 mb-4">
                         <img th:src="${location.icon}" th:alt="${location.description}">
                         <li class="h5" th:text="${location.temperature} + '°C'"></li>
-                        <li th:text="${'Max.:' + location.temperatureMax + ', min.: ' + location.temperatureMin}"></li>
+                        <li th:text="${'Max.:' + location.temperatureMax + '°C, min.: ' + location.temperatureMin} + '°C'"></li>
                     </ul>
-                    <!--                    text-secondary fst-italic-->
                     <span class="text-secondary fst-italic" th:text="${location.weatherCondition}"></span>
                 </div>
             </div>
@@ -47,7 +46,7 @@
                     <ul class="list-unstyled mt-3 mb-4">
                         <img th:src="${location.icon}" th:alt="${location.weatherCondition}">
                         <li class="h5" th:text="${location.temperature} + '°C'"></li>
-                        <li th:text="${'Max.:' + location.temperatureMax + ', min.: ' + location.temperatureMin}"></li>
+                        <li th:text="${'Max.:' + location.temperatureMax + '°C, min.: ' + location.temperatureMin} + '°C'"></li>
                     </ul>
                     <span class="text-secondary fst-italic" th:text="${location.weatherCondition}"></span>
                 </div>

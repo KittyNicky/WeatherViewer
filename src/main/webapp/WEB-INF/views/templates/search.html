@@ -27,9 +27,9 @@
                     <img th:src="${location.icon}" th:alt="${location.description}">
                     <span class="text-dark" th:text="${location.description}"></span>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li class="h4" th:text="${location.temperature}"></li>
-                        <li th:text="${'Max.:' + location.temperatureMax + ', min.: ' + location.temperatureMin}"></li>
-                        <li th:text="${'Feels like: ' + location.feelsLike}"></li>
+                        <li class="h4" th:text="${location.temperature} + '°C'"></li>
+                        <li th:text="${'Max.:' + location.temperatureMax + '°C, min.: ' + location.temperatureMin} + '°C'"></li>
+                        <li th:text="${'Feels like: ' + location.feelsLike + '°C'}"></li>
                     </ul>
                     <form th:action="@{/forecast-weather}" method="post" class="form-control">
                         <input name="city" th:value="${city}" type="hidden">
