@@ -15,7 +15,7 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
-      
+
         <!-- log4j-slf4j2 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -72,7 +72,7 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.3.1.Final</version>
         </dependency>
-
+      
         <!-- thymeleaf -->
         <dependency>
             <groupId>org.thymeleaf</groupId>
@@ -120,13 +120,5 @@
                 </configuration>
             </plugin>
         </plugins>
-        <!--        <resources>-->
-        <!--            <resource>-->
-        <!--                <directory>${basedir}/src/main/resources</directory>-->
-        <!--            </resource>-->
-        <!--            <resource>-->
-        <!--                <directory>${basedir}/src/main/webapp/resources</directory>-->
-        <!--            </resource>-->
-        <!--        </resources>-->
     </build>
 </project>
