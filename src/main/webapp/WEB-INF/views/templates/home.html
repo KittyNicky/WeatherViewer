@@ -20,7 +20,7 @@
             <div class="col mb-3" th:each="location : ${currentWeather}">
                 <div class="card">
                     <div class="card-header py-3">
-                        <h4 class="my-0 fw-weight-bold" th:text="${location.city}"></h4>
+                        <h4 class="my-0 fw-weight-bold" th:text="${location.city} + ', ' + ${location.country}"></h4>
                         <span class="text-secondary fst-italic"
                               th:text="${location.latitude + '°, ' + location.longitude + '°'}"></span>
                     </div>
